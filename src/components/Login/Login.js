@@ -1,28 +1,28 @@
-import React, {useState} from 'react'
-import './Style.css'
+import React from 'react';
+import './Style.css';
 
+const Login = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Handle form submission here
+  }
 
-const Login = (props) => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');  
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email, pass)
-    }
-
-    return(
-        <>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor='email'>Email</label>
-            <input value={email} onChange={(e) => setEmail(e.target.value)} type='email' placeholder='youremail@example.com' id='email' name='email' />
-            <label htmlFor='password'>Password</label>
-            <input value={pass} onChange={(e) => setPass(e.target.value)} type='password' placeholder='********* ' id='password' name='password' />
-            <button type='submit'>Log in</button>
-        </form>
-        <button onClick={() => props.onFormSwitch('register')}>Dont Have an account</button>
-        </>
-    )
-}
+  return (
+    <div className="container">
+      <h1>SIGN IN</h1>
+      <form id="login-form" name="login-form" onSubmit={handleSubmit}>
+        <label htmlFor="email">Email or Username</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        <label htmlFor="pass">Password</label>
+        <input type="password" id="pass" name="pass" placeholder="*******" required />
+        <button type="submit" className='btn login'>Login</button>
+      </form>
+      <div className="btn-container">
+        <a className='btn' href='/signUp'>Don't have an account?</a>
+        <a className='btn' href='/newPass'>Forgot Password</a>
+      </div>
+    </div>
+  );
+};
 
 export default Login;

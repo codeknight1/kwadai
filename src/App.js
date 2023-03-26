@@ -7,15 +7,10 @@ import Signup from './components/Signup/Signup'
 
 
 const App = () => {
-  const [currentForm, setCurrentForm] = useState('login')
-  const toggleForm = (forName) => {
-    setCurrentForm(forName)
-  }
   return (
     <div className="App">
-      {
-        currentForm === 'login' ? <Login onFormSwitch={toggleForm}/> : <Signup onFormSwitch={toggleForm}/>
-      }
+      <Login />
+      {/* <Signup/> */}
     </div>
   );
 }
